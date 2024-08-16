@@ -33,8 +33,9 @@ function createWindow() {
             contextIsolation: true,
             webviewTag: true
         },
+        icon: path.join(__dirname, "assets/icons/512x512.png")
     });
-    //win.setMenu(null);
+    win.setMenu(null);
 
     const ses = session.defaultSession;
     ses.clearCache().then(() => {
@@ -62,8 +63,8 @@ app.on("ready", () => {
     app.on("browser-window-focus", () => {
         globalShortcut.registerAll(
             [
-                "CommandOrControl+R"
-                //"CommandOrControl+Shift+I"
+                "CommandOrControl+R",
+                "CommandOrControl+Shift+I"
             ],
             () => {
                 return;
