@@ -19,7 +19,9 @@ jobs:
         run: sh -c "$(curl -fsSL https://raw.githubusercontent.com/nthnn/Qrepo/master/support/install.sh)"
 
       - name: Build Offion
-        run: qrepo run dist
+        run: |
+          qrepo run install
+          qrepo run dist
 
       - name: Check build output
         run: |
