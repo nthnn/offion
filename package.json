@@ -1,0 +1,44 @@
+{
+  "name": "offion",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "npm run clean && parcel build index.pug --dist-dir dist --public-url . --no-source-maps && cp index.js dist/launch.js && mkdir -p dist/assets && cp assets/*.gif dist/assets/",
+    "start": "npm run build && electron dist/launch.js",
+    "clean": "rm -rf .parcel-cache dist"
+  },
+  "parcel-namer-hashless": {
+    "include": [
+      ".js$",
+      ".css$",
+      ".sass$",
+      ".ts$",
+      ".png$",
+      ".otf$"
+    ],
+    "mode": "all"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nthnn/offion.git"
+  },
+  "keywords": [
+    "onion",
+    "tor",
+    "browser"
+  ],
+  "author": "Nathanne Isip",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nthnn/offion/issues"
+  },
+  "homepage": "https://github.com/nthnn/offion#readme",
+  "dependencies": {
+    "electron": "^31.4.0",
+    "parcel": "^2.12.0"
+  },
+  "devDependencies": {
+    "@parcel/transformer-pug": "^2.12.0",
+    "parcel-namer-hashless": "^1.0.6"
+  }
+}
