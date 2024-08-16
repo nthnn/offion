@@ -10,7 +10,10 @@
     "appId": "xyz.nathannestein.offion",
     "productName": "Offion",
     "linux": {
-      "target": ["deb", "AppImage"],
+      "target": [
+        "deb",
+        "AppImage"
+      ],
       "category": "Network",
       "icon": "assets/icons",
       "maintainer": "Nathanne Isip <nathanneisip@gmail.com>"
@@ -55,8 +58,11 @@
   "devDependencies": {
     "@parcel/transformer-pug": "^2.12.0",
     "@parcel/transformer-sass": "^2.12.0",
+    "coffeescript": "^2.7.0",
     "electron": "^31.4.0",
     "electron-builder": "^24.13.3",
-    "parcel-namer-hashless": "^1.0.6"
+    "parcel-namer-hashless": "^1.0.6",
+    "path-browserify": "^1.0.1",
+    "process": "^0.11.10"
   }
 }
