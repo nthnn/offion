@@ -21,7 +21,7 @@
 			"npx parcel build index.pug --dist-dir app --public-url . --no-source-maps",
 			"mv app/index.js app/global.js && sed -i 's/index.js/global.js/' app/index.html",
 			"mv app/index.css app/global.css && sed -i 's/index.css/global.css/' app/index.html",
-			"cp index.js app/",
+			"npx coffee --output app/index.js -c index.coffee",
 			"mkdir -p app/assets",
 			"cp -r assets app/",
 			"cp -r icons app/assets/"
