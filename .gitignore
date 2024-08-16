@@ -1,6 +1,6 @@
 .parcel-cache/
+app/
 dist/
 node_modules/
-release/
 
 package-lock.json
