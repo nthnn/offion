@@ -1,0 +1,18 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Offion
+    link(href="styles/global.sass", rel="stylesheet")
+  body
+    #navbar
+      span#ip-address Loading IP...
+      input(type="text", id="url-input", value="about:blank")
+      button#go-button Go
+
+    #tabs-container
+      button#new-tab-button +
+    
+    #webview-container
+    script(src="scripts/global.ts", type="module")
