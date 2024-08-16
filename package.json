@@ -2,16 +2,25 @@
   "name": "offion",
   "version": "1.0.0",
   "description": "Debian-based personal browser built with Electron framework, integrating Tor for enhanced privacy and anonymous browsing.",
+  "main": "app/index.js",
+  "targets": {
+    "main": false
+  },
   "build": {
     "appId": "xyz.nathannestein.offion",
     "productName": "Offion",
-    "directories": {
-      "output": "release"
-    },
     "linux": {
-      "target": "AppImage",
+      "target": ["deb", "AppImage"],
       "category": "Network",
-      "icon": "icons"
+      "icon": "assets/icons",
+      "maintainer": "Nathanne Isip <nathanneisip@gmail.com>"
+    },
+    "files": [
+      "app/**/*",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "output": "dist"
     }
   },
   "parcel-namer-hashless": {
@@ -44,9 +53,9 @@
     "parcel": "^2.12.0"
   },
   "devDependencies": {
-    "electron": "^31.4.0",
     "@parcel/transformer-pug": "^2.12.0",
     "@parcel/transformer-sass": "^2.12.0",
+    "electron": "^31.4.0",
     "electron-builder": "^24.13.3",
     "parcel-namer-hashless": "^1.0.6"
   }
