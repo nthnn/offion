@@ -5,11 +5,14 @@
 	"description": "Debian-based personal browser built with Electron framework, integrating Tor for enhanced privacy and anonymous browsing.",
 	"git": "https://github.com/nthnn/offion.git",
 	"scripts": {
+		"dist": ["npx electron-builder"],
 		"clean": ["rm -rf .parcel-cache dist"],
+
 		"install": [
 			"rm -rf node_modules",
 			"npm install"
 		],
+
 		"build": [
 			"qrepo run clean",
 			"npx parcel build index.pug --dist-dir dist --public-url . --no-source-maps",
@@ -17,6 +20,7 @@
 			"mkdir -p dist/assets",
 			"cp assets/*.gif dist/assets/"
 		],
+
 		"dev": [
 			"qrepo run build",
 			"npx electron dist/launch.js"
