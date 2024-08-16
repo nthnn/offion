@@ -1,7 +1,7 @@
 {
   "name": "offion",
   "version": "1.0.0",
-  "description": "",
+  "description": "Debian-based personal browser built with Electron framework, integrating Tor for enhanced privacy and anonymous browsing.",
   "scripts": {
     "build": "npm run clean && parcel build index.pug --dist-dir dist --public-url . --no-source-maps && cp index.js dist/launch.js && mkdir -p dist/assets && cp assets/*.gif dist/assets/",
     "start": "npm run build && electron dist/launch.js",
