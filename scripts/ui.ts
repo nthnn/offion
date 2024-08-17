@@ -26,5 +26,7 @@ export const UI = {
     tabsContainer:      document.getElementById("tabs-container") as HTMLElement,
     webviewContainer:   document.getElementById("webview-container") as HTMLElement,
     urlInput:           document.getElementById("url-input") as HTMLInputElement,
-    goButton:           document.getElementById("go-button") as HTMLButtonElement
+    backButton:         document.getElementById("back-button") as HTMLButtonElement,
+    goButton:           document.getElementById("go-button") as HTMLButtonElement,
+    refreshButton:      document.getElementById("refresh-button") as HTMLButtonElement
 };
