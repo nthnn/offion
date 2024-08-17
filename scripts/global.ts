@@ -26,6 +26,17 @@ import { UI } from "./ui";
 import { Tab } from "./tabs";
 import { Util } from "./util";
 
+UI.backButton.addEventListener("click", ()=> {
+    const activeTab: HTMLElement = UI.tabsContainer.querySelector(".tab.active") as HTMLElement;
+    if(activeTab) {
+        const index: string = activeTab.dataset.index as string;
+        const webviewToUpdate: WebviewTag = UI.webviewContainer.querySelector(`.webview-wrapper[data-index="${index}"] webview`) as WebviewTag;
+
+        if(webviewToUpdate && webviewToUpdate.canGoBack())
+            webviewToUpdate.goBack();
+    }
+});
+
 UI.goButton.addEventListener("click", ()=> {
     const url: string = Util.ensureHttps(UI.urlInput.value);
     const activeTab: HTMLElement = UI.tabsContainer.querySelector(".tab.active") as HTMLElement;
@@ -40,6 +51,17 @@ UI.goButton.addEventListener("click", ()=> {
             webviewToUpdate.src = url;
     }
     else Tab.create(url, new URL(url).hostname);
+});
+
+UI.refreshButton.addEventListener("click", ()=> {
+    const activeTab: HTMLElement = UI.tabsContainer.querySelector(".tab.active") as HTMLElement;
+    if(activeTab) {
+        const index: string = activeTab.dataset.index as string;
+        const webviewToUpdate: WebviewTag = UI.webviewContainer.querySelector(`.webview-wrapper[data-index="${index}"] webview`) as WebviewTag;
+
+        if(webviewToUpdate)
+            webviewToUpdate.reload();
+    }
 });
 
 UI.urlInput.addEventListener("keypress", (e)=> {
