@@ -78,13 +78,12 @@ body, html
     font-size: 14px
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2)
 
-#go-button
+#back-button, #go-button, #refresh-button
     padding: 8px 16px
     font-size: 14px
     color: #ffffff
     background-color: #007aff
     border: none
-    border-radius: 22px
     cursor: pointer
     transition: background-color 0.3s ease, transform 0.2s ease
 
@@ -93,6 +92,14 @@ body, html
     
     &:active
         transform: scale(0.98)
+
+#back-button
+    border-top-left-radius: 22px
+    border-bottom-left-radius: 22px
+
+#refresh-button
+    border-top-right-radius: 22px
+    border-bottom-right-radius: 22px
 
 #tabs-container
     overflow-y: hidden
