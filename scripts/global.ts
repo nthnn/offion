@@ -115,7 +115,9 @@ function createTab(url: string, title: string): void {
     });
 
     webview.addEventListener("did-stop-loading", async ()=> {
-        tabTitle.textContent = webview.getTitle();
+        const webviewTitle = webview.getTitle()
+        tabTitle.textContent = webviewTitle.substring(0, 40) + (webviewTitle.length > 40 ? "..." : "");
+        tabTitle.setAttribute("title", webviewTitle);
 
         const faviconSrc: string = await fetchFavicon(urlInput.value);
         faviconImg.src = faviconSrc;
@@ -125,7 +127,8 @@ function createTab(url: string, title: string): void {
     });
 
     webview.addEventListener("page-title-updated", async (e)=> {
-        tabTitle.textContent = e.title;
+        tabTitle.textContent = e.title.substring(0, 40) + (e.title.length > 40 ? "..." : "");
+        tabTitle.setAttribute("title", e.title);
     });
 
     webviewWrapper.appendChild(webview);
@@ -145,12 +148,13 @@ function createTab(url: string, title: string): void {
         e.preventDefault();
 
         const draggingTab: HTMLElement = document.querySelector(".tab.dragging") as HTMLElement;
-        if(e.target.classList.contains("tab") && e.target !== draggingTab) {
-            const rect = e.target.getBoundingClientRect();
+        const target = e.target as HTMLElement;
+        if(target.classList.contains("tab") && target !== draggingTab) {
+            const rect = target.getBoundingClientRect();
             const middle: number = rect.top + rect.height / 2;
             const after: boolean = e.clientY > middle;
 
-            tabsContainer.insertBefore(draggingTab, after && e.target.nextSibling || e.target);
+            tabsContainer.insertBefore(draggingTab, after && (target.nextSibling as ChildNode) || target);
         }
     });
 
@@ -274,4 +278,4 @@ document.addEventListener("keydown", (e)=> {
     }
 })();
 
-createTab("http://haystak5njsmn2hqkewecpaxetahtwhsbsa64jom2k22z5afxhnpxfid.onion/", "Haystack");
+createTab("http://haystak5njsmn2hqkewecpaxetahtwhsbsa64jom2k22z5afxhnpxfid.onion/", "Haystak");
